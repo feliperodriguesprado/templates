@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<!-- Usado para leitura e escrita dos arquivos -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<groupId>templates.java</groupId>
+	<artifactId>templates.java.project1</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>Template Java Project 1</name>
+
+	<dependencies>
+
+		<!-- Java EE 7 Web -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>8.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Implementação JSF 2.3 -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.3.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Implementação CDI -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>3.0.2.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.5.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Primefaces theme -->
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>1.0.10</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<!-- O Compiler Plugin é responsável por compilar as fontes do seu projeto -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>9</source>
+					<target>9</target>
+				</configuration>
+			</plugin>
+
+			<!-- O WAR Plugin é responsável por coletar todas as dependências, classes 
+				e recursos do aplicativo da Web e empacotá-los em um arquivo de aplicativos 
+				da Web. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<!-- <warName>${project.artifactId}</warName> --> <!-- Maven -->
+					<warName>templates/java/project1</warName> <!-- Eclipse IDE -->
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<url>http://repository.primefaces.org/</url>
+			<id>PrimeFaces-maven-lib</id>
+			<layout>default</layout>
+			<name>Repository for library PrimeFaces-maven-lib</name>
+		</repository>
+	</repositories>
+
+</project>

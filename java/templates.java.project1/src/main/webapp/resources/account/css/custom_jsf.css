@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.ui-message-error-icon {
+	background: none !important;
+	height: 0 !important;
+	width: 0 !important;
+}
+
+.ui-message-error-detail {
+	font-size: 0.8em !important;
+}
+
+@media ( max-width : 640px) {
+	.ui-panelgrid .ui-grid-responsive .ui-grid-row {
+		border-top: 0px !important;
+	}
+}

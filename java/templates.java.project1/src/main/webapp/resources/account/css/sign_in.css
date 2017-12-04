@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+	background-color: #0288d1;
+}
+
+.content {
+	width: 400px;
+	margin: 120px auto;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.content form {
+	padding: 40px 30px;
+}
+
+.ui-custom-input {
+	margin-bottom: 5px !important;
+	font-size: 0.8em !important;
+	padding: 10px !important;
+}
+
+@media ( max-width : 640px) {
+	.content {
+		width: 100%;
+	}
+	
+}

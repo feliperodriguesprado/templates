@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>#{i18n.signin_page_title}</title>
+
+	<!-- styles -->
+	<h:outputStylesheet library="account" name="css/custom_jsf.css" />
+	<h:outputStylesheet library="account" name="css/sign_in.css" />
+
+</h:head>
+
+<h:body>
+
+	<section class="content">
+
+		<h:form id="formSignIn">
+
+			<div class="ui-fluid">
+				<p:panelGrid columns="1" columnClasses="ui-grid-col-12"
+					layout="grid" styleClass="ui-panelgrid-blank">
+
+					<p:column>
+						<h:outputLabel value="#{i18n.signin_access_your_account}" />
+					</p:column>
+
+					<p:column>
+						<p:inputText id="userName" value="#{signInController.userName}"
+							class="ui-custom-input" placeholder="#{i18n.signin_username}" />
+						<p:message for="userName" />
+					</p:column>
+
+					<p:column>
+						<p:password id="password" value="#{signInController.password}"
+							class="ui-custom-input" placeholder="#{i18n.signin_password}" />
+						<p:message for="password" />
+					</p:column>
+
+					<p:column>
+						<p:commandButton value="#{i18n.signin_access}"
+							action="#{signInController.access}" update="formSignIn" />
+					</p:column>
+				</p:panelGrid>
+			</div>
+
+		</h:form>
+	</section>
+
+</h:body>
+
+</html>
