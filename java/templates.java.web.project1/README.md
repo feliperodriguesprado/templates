@@ -16,6 +16,6 @@
 - Alterar o nome dos pacotes de acordo com o projeto;
 
 - URL para teste após importar projeto na IDE: 
-http://localhost:8080/templates/java/project1/account/sign_in.xhtml
+http://localhost:8080/templates/java/web/project1/account/sign_in.xhtml
 
 

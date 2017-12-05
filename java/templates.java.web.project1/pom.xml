@@ -8,11 +8,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<groupId>templates.java</groupId>
-	<artifactId>templates.java.project1</artifactId>
+	<groupId>templates.java.web</groupId>
+	<artifactId>templates.java.web.project1</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>Template Java Project 1</name>
+	<name>Template Java Web - Project 1</name>
 
 	<dependencies>
 
@@ -90,7 +90,7 @@
 				<version>3.2.0</version>
 				<configuration>
 					<!-- <warName>${project.artifactId}</warName> --> <!-- Maven -->
-					<warName>templates/java/project1</warName> <!-- Eclipse IDE -->
+					<warName>templates/java/web/project1</warName> <!-- Eclipse IDE -->
 				</configuration>
 			</plugin>
 

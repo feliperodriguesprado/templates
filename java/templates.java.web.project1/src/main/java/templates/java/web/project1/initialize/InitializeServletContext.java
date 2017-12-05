@@ -1,4 +1,4 @@
-package templates.java.project1.initialize;
+package templates.java.web.project1.initialize;
 
 import java.util.Locale;
 

@@ -1,4 +1,4 @@
-package templates.java.project1.controllers;
+package templates.java.web.project1.controllers;
 
 import java.io.Serializable;
 import java.util.Locale;
