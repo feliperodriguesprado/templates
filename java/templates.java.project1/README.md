@@ -1,6 +1,6 @@
 # Template projeto Java Web:
 
-- Java 9
+- Java 9;
 - JSF com Primefaces;
 - CDI;
 - Bean Validation;
