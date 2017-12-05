@@ -8,7 +8,7 @@
 
 		<!-- Configuração para utilizar internacionalização no JSF -->
 		<resource-bundle>
-			<base-name>templates.java.project1.i18n.messages</base-name>
+			<base-name>i18n.messages</base-name>
 			<var>i18n</var>
 		</resource-bundle>
 		<locale-config>

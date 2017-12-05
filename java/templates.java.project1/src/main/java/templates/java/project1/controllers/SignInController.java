@@ -22,13 +22,13 @@ public class SignInController implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		FacesContext.getCurrentInstance().getViewRoot().setLocale(new Locale("pt", "BR")); // Set locale to bean validation
+		FacesContext.getCurrentInstance().getViewRoot().setLocale(Locale.getDefault()); // Set locale to bean validation
 	}
 
 	public void access() {
 
 		// Obtem i18n
-		String display_username_password = ResourceBundle.getBundle("templates.java.project1.i18n.messages", Locale.getDefault())
+		String display_username_password = ResourceBundle.getBundle("i18n.messages", Locale.getDefault())
 				.getString("display_username_password");
 
 		System.out.printf(display_username_password + "\n", userName, password);
