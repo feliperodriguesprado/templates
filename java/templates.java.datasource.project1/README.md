@@ -24,24 +24,24 @@
 
 - Para obter uma conexão com o banco de dados faça:
 
-```sh
+```
 DataSource.getInstance().setFileDatabaseProperties("caminho_do_arquivo_de_propriedades_do_banco_de_dados");
 Connection connection = DataSource.getInstance().getConnection();
 ```
 - Após fazer um INSERT, UPDATE, DELETE ou realizar alguma QUERY, faça:
 
-```sh
+```
 DataSource.getInstance().commit(connection);
 ```
 
 - Para desfazer uma transação faça:
 
-```sh
+```
 DataSource.getInstance().rollback(connection);
 ```
 
 - Para encerrar o DataSource faça:
 
-```sh
+```
 DataSource.getInstance().closeDataSource();
 ```
