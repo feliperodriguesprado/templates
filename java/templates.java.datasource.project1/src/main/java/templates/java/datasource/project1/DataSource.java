@@ -6,14 +6,16 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class DataSource {
 
 	private static final DataSource INSTANCE = new DataSource();
+	private static final String FILE_PATH_DATABASE_PROPERTIES = "src/main/resources/database/database.properties";
 	private ComboPooledDataSource dataSource;
-	private String filePathDatabaseProperties = "src/main/resources/database/database.properties";
+	private FileInputStream fileInputStreamDatabaseProperties;
 
 	private DataSource() {
 	}
@@ -22,21 +24,26 @@ public class DataSource {
 		return INSTANCE;
 	}
 
-	public Connection getConnection() {
+	public Connection getConnection() throws Exception {
 
-		Connection connection = null;
+		Connection connection;
 
 		dataSource = getDataSource();
 
 		try {
 			connection = dataSource.getConnection();
 			connection.setAutoCommit(false);
+			return connection;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Logger.getGlobal().severe(e.getMessage());
+			throw e;
 		}
 
-		return connection;
+	}
 
+	public void closeDataSource() {
+		dataSource.close();
+		dataSource = null;
 	}
 
 	public void commit(Connection connection) {
@@ -44,19 +51,35 @@ public class DataSource {
 		try {
 			if (connection != null && !connection.isClosed()) {
 				connection.commit();
+				connection.close();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void rollback(Connection connection) {
+		
+		try {
+			if (connection != null && !connection.isClosed()) {
+				connection.rollback();
+				connection.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
-	private ComboPooledDataSource getDataSource() {
+	private ComboPooledDataSource getDataSource() throws Exception {
+
+		Properties propertiesDataBase;
 
 		if (dataSource == null) {
 
-			try {
+			propertiesDataBase = getPropertiesDataBase();
 
-				Properties propertiesDataBase = getPropertiesDataBase();
+			try {
 
 				dataSource = new ComboPooledDataSource();
 				dataSource.setDriverClass(propertiesDataBase.getProperty("driverClass"));
@@ -67,34 +90,60 @@ public class DataSource {
 				dataSource.setAcquireIncrement(Integer.parseInt(propertiesDataBase.getProperty("acquireIncrement")));
 				dataSource.setMaxPoolSize(Integer.parseInt(propertiesDataBase.getProperty("maxPoolSize")));
 
-			} catch (IOException | PropertyVetoException e) {
-				e.printStackTrace();
+			} catch (PropertyVetoException e) {
+				Logger.getGlobal().severe(e.getMessage());
+				throw e;
 			}
-
 		}
 
 		return dataSource;
+
 	}
 
-	private Properties getPropertiesDataBase() throws IOException {
+	private Properties getPropertiesDataBase() throws Exception {
 
-		Properties propertiesDataBase;
-		FileInputStream fileInputStream;
+		Properties propertiesDataBase = new Properties();
 
 		try {
-			propertiesDataBase = new Properties();
-			fileInputStream = new FileInputStream(filePathDatabaseProperties);
-			propertiesDataBase.load(fileInputStream);
+
+			if (fileInputStreamDatabaseProperties == null) {
+
+				Logger.getGlobal().warning(
+						"Arquivo de propriedades do banco de dados não informado. Será utilizado o arquivo padrão");
+
+				fileInputStreamDatabaseProperties = new FileInputStream(FILE_PATH_DATABASE_PROPERTIES);
+
+			}
+
+			propertiesDataBase.load(fileInputStreamDatabaseProperties);
+
+			fileInputStreamDatabaseProperties.close();
+			fileInputStreamDatabaseProperties = null;
+
 			return propertiesDataBase;
+
 		} catch (IOException e) {
-			e.printStackTrace();
+
+			Logger.getGlobal().severe(e.getMessage());
 			throw e;
+
 		}
 
 	}
 
-	public void setFilePathDatabaseProperties(String filePathDatabaseProperties) {
-		this.filePathDatabaseProperties = filePathDatabaseProperties;
+	public void setFileDatabaseProperties(String filePathDatabaseProperties) throws Exception {
+
+		try {
+
+			fileInputStreamDatabaseProperties = new FileInputStream(filePathDatabaseProperties);
+
+		} catch (IOException e) {
+
+			Logger.getGlobal().severe(e.getMessage());
+			throw e;
+
+		}
+
 	}
 
 }
