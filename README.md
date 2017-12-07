@@ -1,2 +1,3 @@
 # Templates
-Repository for development of templates of different technologies.
+
+Repositório para o desenvolvimento de templates de diferentes tecnologias.
