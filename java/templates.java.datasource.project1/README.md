@@ -1,4 +1,4 @@
-# Java DataSource
+# DataSource template for Java
 
 - Java 9;
 - c3p0;
