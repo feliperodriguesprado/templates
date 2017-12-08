@@ -15,7 +15,7 @@
 
 - Após a importação faça o *refactor* dos *packages* que estão na pasta **src/mani/java** nomeando-os de acordo com a sua preferência;
 
-- URL para teste após importar projeto na IDE:
+- URL para teste após *deploy* da aplicação:
   http://localhost:8080/URL_adicionada_no_plugin_maven-war-plugin/account/SignIn.xhtml
   
 - Os arquivos de internacionalização (i18n) utilizados nas páginas e na aplicação estão armazenados na pasta **src/main/resources/i18n/**. Esses arquivos são configurados no arquivo **src/main/webapp/WEB-INF/faces-config.xml**.
