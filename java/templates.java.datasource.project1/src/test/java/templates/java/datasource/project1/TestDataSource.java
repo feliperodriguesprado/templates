@@ -1,6 +1,9 @@
 /**
- *  Java DataSource
-    Copyright (C) 2017 felipeprado
+ *  DataSource template for Java.
+    
+    Copyright (C) 2017.
+    
+    Author: Felipe Prado <rodriguesprado.felipe@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,24 +38,20 @@ public class TestDataSource {
 	public void setFileDatabasePropertiesShouldThrowExceptionWhenInvalidPath() throws Exception {
 
 		Logger.getGlobal().info(
-				"Teste -> Ao definir arquivo de propriedades do banco de dados deve lançar exceção quando o caminho do arquivo for inválido");
+				"Teste > Ao definir arquivo de propriedades do banco de dados deve lançar exceção quando o caminho do arquivo for inválido");
 
 		DataSource.getInstance().setFileDatabaseProperties("src/main");
-
 		DataSource.getInstance().getConnection();
 	}
 
 	@Test
 	public void checkConnectionDatabase() throws Exception {
 
-		Logger.getGlobal().info("Teste -> Verificar conexão com o banco de dados");
+		Logger.getGlobal().info("Teste > Verificar conexão com o banco de dados");
 
 		Connection connection = DataSource.getInstance().getConnection();
-
 		assertNotNull(connection);
-
 		printPeopleList(connection);
-
 		DataSource.getInstance().commit(connection);
 		DataSource.getInstance().closeDataSource();
 	}
@@ -60,12 +59,10 @@ public class TestDataSource {
 	@Test
 	public void checkMinPoolSizeDataSource() throws Exception {
 
-		Logger.getGlobal().info("Teste -> Verificar o tamanho mínimo do pool de conexções com o banco de dados");
+		Logger.getGlobal().info("Teste > Verificar o tamanho mínimo do pool de conexções com o banco de dados");
 
 		Connection connection = DataSource.getInstance().getConnection();
-
 		assertEquals(3, getNumberActiveConnectionsInDatabase(connection));
-
 		DataSource.getInstance().commit(connection);
 		DataSource.getInstance().closeDataSource();
 	}
@@ -73,15 +70,13 @@ public class TestDataSource {
 	@Test
 	public void checkAcquireIncrementDataSource() throws Exception {
 
-		Logger.getGlobal().info("Teste -> Verificar incremento de conexções com o banco de dados");
+		Logger.getGlobal().info("Teste > Verificar incremento de conexções com o banco de dados");
 
 		Connection connection = DataSource.getInstance().getConnection();
 		connection = DataSource.getInstance().getConnection();
 		connection = DataSource.getInstance().getConnection();
 		connection = DataSource.getInstance().getConnection();
-
 		assertEquals(6, getNumberActiveConnectionsInDatabase(connection));
-
 		DataSource.getInstance().commit(connection);
 		DataSource.getInstance().closeDataSource();
 	}
@@ -89,14 +84,15 @@ public class TestDataSource {
 	@Test
 	public void commitInsertInDatabase() throws Exception {
 
-		Logger.getGlobal().info("Teste -> Realizar commit de um INSERT no banco de dados");
+		Logger.getGlobal().info("Teste > Realizar commit de um INSERT no banco de dados");
 
 		PreparedStatement preparedStatement;
+		Connection connection;
 		int rowsAffected, generatedKey = 0;
 		ResultSet resultSet;
 		String query = "insert into templates.people (first_name, last_name, birth_date) values ('Roberto', 'Pereira', '1985-07-26')";
 
-		Connection connection = DataSource.getInstance().getConnection();
+		connection = DataSource.getInstance().getConnection();
 
 		try {
 			preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -141,11 +137,12 @@ public class TestDataSource {
 		Logger.getGlobal().info("Teste -> Realizar rollback de um INSERT no banco de dados");
 
 		PreparedStatement preparedStatement;
+		Connection connection;
 		int rowsAffected, generatedKey = 0;
 		ResultSet resultSet;
 		String query = "insert into templates.people (first_name, last_name, birth_date) values ('Roberto', 'Pereira', '1985-07-26')";
 
-		Connection connection = DataSource.getInstance().getConnection();
+		connection = DataSource.getInstance().getConnection();
 
 		try {
 			preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -183,12 +180,14 @@ public class TestDataSource {
 
 	private int getNumberActiveConnectionsInDatabase(Connection connection) throws Exception {
 
+		PreparedStatement preparedStatement;
+		ResultSet resultSet;
 		String query = "select count(pid) from pg_stat_activity where datname = 'postgres'";
 		int numberActiveConnections = 0;
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(query);
-			ResultSet resultSet = preparedStatement.executeQuery();
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
 				numberActiveConnections = resultSet.getInt(1);

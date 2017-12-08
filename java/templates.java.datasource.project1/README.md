@@ -15,26 +15,30 @@
 - Importe o projeto na IDE Eclipse através da opção: **File > Import... > Maven > Existing Maven Projects**;
 
 - Após a importação faça o *refactor* dos *packages* que estão nas pastas abaixo com os dados do seu projeto:
-	**src/main/java**
-	**src/test/java**
+**src/main/java**<br>**src/test/java**</br>
 
 - Dentro da pasta **src/main/resources/database** existe o arquivo **database.properties** onde deve ser informado as propriedades de conexão e preferências do banco de dados utilizado. O banco de dados utilizado é o PostgreSQL 9.6, para utilizar outro banco de dados é necessário adicionar o JDBC *driver* referente no arquivo **pom.xml**.
 
 - Dentro da pasta **src/main/resources/database** existe também o arquivo **ddl.sql** que cria um *schema* chamado **templates** e uma tabela **people** com alguns dados para testar o funcionamento da aplicação.
 
-- Para obter uma conexão com o banco de dados faça:
+- Defina o caminho do arquivo de propriedades do banco de dados:
 
 ```
 DataSource.getInstance().setFileDatabaseProperties("caminho_do_arquivo_de_propriedades_do_banco_de_dados");
+```
+
+- Para obter uma conexão com o banco de dados faça:
+
+```
 Connection connection = DataSource.getInstance().getConnection();
 ```
-- Após fazer um INSERT, UPDATE, DELETE ou realizar alguma QUERY, faça:
+- Após realizar uma transação de INSERT, UPDATE, DELETE ou realizar alguma QUERY faça:
 
 ```
 DataSource.getInstance().commit(connection);
 ```
 
-- Para desfazer uma transação faça:
+- Para desfazer uma transação de INSERT, UPDATE, DELETE faça:
 
 ```
 DataSource.getInstance().rollback(connection);
