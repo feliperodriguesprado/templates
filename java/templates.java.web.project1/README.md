@@ -7,7 +7,7 @@
 - i18n para as páginas e Bean Validation;
 - Tomcat 9;
 - Maven;
-- Utilizando IDE Eclipse.
+- Eclipse IDE.
 
 ## Uso
 
