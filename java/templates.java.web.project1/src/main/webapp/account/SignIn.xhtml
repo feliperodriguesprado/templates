@@ -11,9 +11,11 @@
 	<title>#{i18n.signin_page_title}</title>
 
 	<!-- styles -->
-	<h:outputStylesheet library="account" name="css/custom_jsf.css" />
-	<h:outputStylesheet library="account" name="css/sign_in.css" />
+	<h:outputStylesheet library="account" name="css/CustomJSF.css" />
+	<h:outputStylesheet library="account" name="css/SignIn.css" />
 
+	<!-- scripts -->
+	<h:outputScript target="body" library="account" name="js/SignIn.js" />
 </h:head>
 
 <h:body>
@@ -23,6 +25,7 @@
 		<h:form id="formSignIn">
 
 			<div class="ui-fluid">
+
 				<p:panelGrid columns="1" columnClasses="ui-grid-col-12"
 					layout="grid" styleClass="ui-panelgrid-blank">
 
@@ -47,9 +50,11 @@
 							action="#{signInController.access}" update="formSignIn" />
 					</p:column>
 				</p:panelGrid>
+
 			</div>
 
 		</h:form>
+
 	</section>
 
 </h:body>
