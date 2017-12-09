@@ -15,7 +15,7 @@
 - Importe o projeto na IDE Eclipse através da opção: **File > Import... > Maven > Existing Maven Projects**;
 
 - Após a importação faça o *refactor* dos *packages* que estão nas pastas abaixo nomeando-os de acordo com a sua preferência;
-**src/main/java**<br>**src/test/java**</br>
+<br>**src/main/java**</br><br>**src/test/java**</br>
 
 - Dentro da pasta **src/main/resources/database** existe o arquivo **database.properties** onde deve ser informado as propriedades de conexão e preferências do banco de dados utilizado. O banco de dados utilizado é o PostgreSQL 9.6, para utilizar outro banco de dados é necessário adicionar o JDBC *driver* referente no arquivo **pom.xml**.
 
