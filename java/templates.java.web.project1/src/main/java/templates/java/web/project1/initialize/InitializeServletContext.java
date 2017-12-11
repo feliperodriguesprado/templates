@@ -38,7 +38,7 @@ public class InitializeServletContext implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 
-		Logger.getGlobal().info("Java Web template initialized");
+		Logger.getGlobal().info("Contexto servlet Java Web template inicializado");
 
 		Locale.setDefault(new Locale("pt", "BR"));
 		Logger.getGlobal().info("Local padrão JVM = " + Locale.getDefault().toString());
@@ -46,7 +46,7 @@ public class InitializeServletContext implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		Logger.getGlobal().info("Java Web template destroyed");
+		Logger.getGlobal().info("Contexto servlet Java Web template destruído");
 	}
 
 }

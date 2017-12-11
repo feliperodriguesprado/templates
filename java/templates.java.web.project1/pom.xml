@@ -16,7 +16,7 @@
 
 	<dependencies>
 
-		<!-- Java EE 7 Web -->
+		<!-- Java EE 8 Web -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
