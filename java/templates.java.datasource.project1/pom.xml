@@ -42,10 +42,9 @@
 	</dependencies>
 
 	<build>
-
 		<plugins>
 
-			<!-- O Compiler Plugin é responsável por compilar as fontes do seu projeto -->
+			<!-- Plugin é responsável por compilar as fontes do projeto -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -56,22 +55,32 @@
 				</configuration>
 			</plugin>
 
-			<!-- Plugin responsável por construir o JAR. -->
+			<!-- Plugin responsável por construir o JAR com suas dependências, em 
+				um único arquivo distribuível -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.0.2</version>
-				<!-- <configuration>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>templates.java.datasource.project1.Main</mainClass>
+							<addClasspath>true</addClasspath>
+							<!-- <mainClass>templates.java.datasource.project1.Main</mainClass> -->
 						</manifest>
 					</archive>
-				</configuration> -->
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
-
 		</plugins>
-
 	</build>
-
 </project>
