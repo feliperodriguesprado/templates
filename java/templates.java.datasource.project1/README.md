@@ -1,8 +1,8 @@
-# DataSource template for Java
+# DataSource template for Java - Project 1
 
 - Java 9;
-- c3p0;
-- JUnit;
+- c3p0 0.9.5.2;
+- JUnit 4.12;
 - Maven;
 - Eclipse IDE;
 - PostgreSQL 9.6.
