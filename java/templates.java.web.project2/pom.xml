@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<!-- Usado para leitura e escrita dos arquivos -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<groupId>templates.java.web</groupId>
+	<artifactId>templates.java.web.project2</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>Template Java Web - Project 2</name>
+
+	<dependencies>
+
+		<!-- Jersey modules -->
+
+		<!-- Jersey core Servlet 3.x implementation -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>2.26</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- HK2 InjectionManager implementation -->
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>2.26</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Jersey JSON-B support module -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-binding</artifactId>
+			<version>2.26</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) 
+			API to manage MIME data -->
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Jaxb Api -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<!-- O Compiler Plugin é responsável por compilar as fontes do seu projeto -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>9</source>
+					<target>9</target>
+				</configuration>
+			</plugin>
+
+			<!-- O WAR Plugin é responsável por coletar todas as dependências, classes 
+				e recursos do aplicativo da Web e empacotá-los em um arquivo de aplicativos 
+				da Web. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<!-- <warName>${project.artifactId}</warName> --> <!-- Maven -->
+					<warName>templates/java/web/project2</warName> <!-- Eclipse IDE -->
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
