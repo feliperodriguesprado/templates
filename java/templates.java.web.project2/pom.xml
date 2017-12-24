@@ -34,10 +34,10 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Jersey JSON-B support module -->
+		<!-- Jersey JSON entity providers support module based on EclipseLink MOXy -->
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-binding</artifactId>
+			<artifactId>jersey-media-moxy</artifactId>
 			<version>2.26</version>
 			<scope>compile</scope>
 		</dependency>

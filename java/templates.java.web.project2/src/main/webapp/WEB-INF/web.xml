@@ -8,7 +8,7 @@
 	<servlet>
 		<servlet-name>Jersey Servlet</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-		
+
 		<init-param>
 			<!-- Pacote do Jersey com classes de serviço -->
 			<param-name>jersey.config.server.provider.packages</param-name>
@@ -16,7 +16,7 @@
 			<!-- Pacote da aplicação com as classes que contém os recursos REST -->
 			<param-value>templates.java.web.project2.rest</param-value>
 		</init-param>
-		
+
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Template REST</title>
+<link rel="stylesheet" href="Index.css">
+</head>
+<body>
+
+	<div class="column">
+
+		<div>Lista de objetos obtida usando recurso REST do tipo GET sem
+			parâmetros:</div>
+		<div class="urlREST">http://localhost:8080/templates/java/web/project2/rest/resource1/method1</div>
+
+		<div id=divTable1>
+			<table id="table1">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Date</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+
+		<hr>
+		<div>Objeto obtido através do recurso REST do tipo GET com
+			parâmetro query (variável id) na URL:</div>
+		<div class="urlREST">http://localhost:8080/templates/java/web/project2/rest/resource1/method2?id=[ID]</div>
+
+		<div>
+			<table id="table2">
+				<tr>
+					<th>ID</th>
+					<th>Date</th>
+					<th>Description</th>
+				</tr>
+			</table>
+		</div>
+
+		<hr>
+		<div>Objeto obtido através do recurso REST do tipo GET com
+			parâmetro path na URL:</div>
+		<div class="urlREST">http://localhost:8080/templates/java/web/project2/rest/resource1/method3/[ID]</div>
+		<div>
+			<table id="table3">
+				<tr>
+					<th>ID</th>
+					<th>Date</th>
+					<th>Description</th>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<div class="column">
+
+		<div>Criação de novo objeto através do recurso REST do tipo PUT:</div>
+		<div class="urlREST">http://localhost:8080/templates/java/web/project2/rest/resource1/method4</div>
+		<div>
+			Informe a descrição: <input id="inputPUT" type="text" />
+		</div>
+		<div>
+			<input id="btnPUT" type="button" value="Cadastrar" />
+		</div>
+
+		<hr>
+		<div>Atualização do objeto através do recurso REST do tipo POST:</div>
+		<div class="urlREST">http://localhost:8080/templates/java/web/project2/rest/resource1/method5</div>
+		<div>
+			Informe o ID: <input id="inputPOSTId" type="number" />
+		</div>
+		<div>
+			Informe a descrição: <input id="inputPOSTDescription" type="text" />
+		</div>
+		<div>
+			<input id="btnPOST" type="button" value="Atualizar" />
+		</div>
+
+		<hr>
+		<div>Remoção de objeto através do recurso REST do tipo DELETE
+			com parâmetro path na URL:</div>
+		<div class="urlREST">http://localhost:8080/templates/java/web/project2/rest/resource1/method6/[ID]</div>
+		<div>
+			Informe o ID: <input id="inputDELETE" type="number" />
+		</div>
+		<div>
+			<input id="btnDELETE" type="button" value="Remover" />
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="Index.js"></script>
+</body>
+</html>

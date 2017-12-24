@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+html {
+	font-size: 13px;
+	font-style: italic;
+}
+
+hr {
+	margin-top: 40px;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 10px;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+#divTable1 {
+	height: 280px;
+	overflow: auto;
+}
+
+.urlREST {
+	font-weight: bold;
+}
+
+.column {
+	border: 1px black solid;
+	width: 49%;
+	float: left;
+	margin: 0px 5px;
+}
