@@ -14,7 +14,7 @@
 
 - Antes de importar o projeto na IDE Eclipse, edite o arquivo **pom.xml** e altere as *tags* **groupId**, **artifactId**, **version** e **name** com os dados do seu projeto. Altere também no *plugin* **maven-war-plugin** a *tag* **warName** com a URL de sua preferência que será usada para acessar o sistema quando o Eclipse IDE fizer o *deploy* da aplicação no Tomcat;
 
-- Após a importação faça o *refactor* dos *packages* que estão na pasta **src/mani/java** nomeando-os de acordo com a sua preferência;
+- Após a importação faça o *refactor* dos *packages* que estão na pasta **src/main/java** nomeando-os de acordo com a sua preferência;
   
 - Os arquivos de internacionalização (i18n) utilizados nas páginas e na aplicação estão armazenados na pasta **src/main/resources/i18n/**. Esses arquivos são configurados no arquivo **src/main/webapp/WEB-INF/faces-config.xml**.
 
