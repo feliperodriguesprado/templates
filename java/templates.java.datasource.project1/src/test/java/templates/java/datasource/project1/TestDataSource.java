@@ -59,7 +59,7 @@ public class TestDataSource {
 	@Test
 	public void checkMinPoolSizeDataSource() throws Exception {
 
-		Logger.getGlobal().info("Teste > Verificar o tamanho mínimo do pool de conexções com o banco de dados");
+		Logger.getGlobal().info("Teste > Verificar o tamanho mínimo do pool de conexões com o banco de dados");
 
 		Connection connection = DataSource.getInstance().getConnection();
 		assertEquals(3, getNumberActiveConnectionsInDatabase(connection));
@@ -70,7 +70,7 @@ public class TestDataSource {
 	@Test
 	public void checkAcquireIncrementDataSource() throws Exception {
 
-		Logger.getGlobal().info("Teste > Verificar incremento de conexções com o banco de dados");
+		Logger.getGlobal().info("Teste > Verificar incremento de conexões com o banco de dados");
 
 		Connection connection = DataSource.getInstance().getConnection();
 		connection = DataSource.getInstance().getConnection();
